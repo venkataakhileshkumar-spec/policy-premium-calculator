@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Policy Premium Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Policy premium calculator</h1>
+  <p class="sub">Estimate a health insurance premium from age, plan tier, tobacco use, region and household size. Illustrative rates only, not a real quote.</p>
+
+  <div class="grid">
+    <section class="panel" aria-label="Policy details">
+      <label for="age">Primary member age</label>
+      <input id="age" type="number" min="0" max="100" value="35" inputmode="numeric">
+
+      <label for="plan">Plan tier</label>
+      <select id="plan">
+        <option value="bronze">Bronze (lowest premium, high deductible)</option>
+        <option value="silver" selected>Silver</option>
+        <option value="gold">Gold</option>
+        <option value="platinum">Platinum (highest premium, low deductible)</option>
+      </select>
+
+      <label for="coverage">Coverage type</label>
+      <select id="coverage">
+        <option value="individual">Individual</option>
+        <option value="couple">Individual + spouse</option>
+        <option value="family">Family (with children)</option>
+      </select>
+
+      <div class="row">
+        <div>
+          <label for="kids">Children covered</label>
+          <input id="kids" type="number" min="0" max="10" value="0" inputmode="numeric">
+        </div>
+        <div>
+          <label for="region">Region</label>
+          <select id="region">
+            <option value="metro">Metro city</option>
+            <option value="urban" selected>Urban</option>
+            <option value="rural">Rural</option>
+          </select>
+        </div>
+      </div>
+
+      <label class="check"><input id="tobacco" type="checkbox"> Uses tobacco</label>
+      <label class="check"><input id="wellness" type="checkbox"> Enrolled in wellness program</label>
+      <p class="hint">Wellness enrollment gives a 5% discount.</p>
+
+      <div class="err" id="err" role="alert"></div>
+      <button id="calc" type="button">Calculate premium</button>
+    </section>
+
+    <section class="panel" aria-live="polite" aria-label="Premium result">
+      <div id="result"><p class="empty">Enter details and select Calculate premium.</p></div>
+    </section>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
